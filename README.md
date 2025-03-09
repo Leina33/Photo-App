@@ -47,15 +47,15 @@ Creating a new project
 2. Open terminal and run this command
    -"composer create-project laravel/laravel PhotoApp"
    - on .env file
-       -uncomment db config 
-       -rename from sqlite to mysql
-       -rename database name
-    -Auth scaffolding
+       - uncomment db config 
+       - rename from sqlite to mysql
+       - rename database name
+    - Auth scaffolding
       run command
-      -composer require laravel/breeze
-      -php artisan breeze:install
-      -php artisan migrate
-      -php artisan serve
+      - composer require laravel/breeze
+      - php artisan breeze:install
+      - php artisan migrate
+      - php artisan serve
 
 
 
