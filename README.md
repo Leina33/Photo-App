@@ -60,26 +60,30 @@ Creating a new project
 
 Clonning existing PhotoApp project from repo to local machine
 ===============================================================
-- Rename .env.example into .env
+1. Rename .env.example into .env
 
-- uncomment db config 
+2. Uncomment db config 
 
-- rename from sqlite to mysql
+- Rename from sqlite to mysql
 
 - Rename : Appname 
 
-- run this command 
+3. Run this command 
 
-1.composer install
+- composer install
 
-2.php artisan key:generate
+- php artisan key:generate
 
-3.composer update
+- composer update
 
-4.php artisan migrate
+- php artisan migrate
 
-5.npm install
+- npm install
 
-6.npm run dev
+- npm run dev
 
+<<<<<<< HEAD
 7.php artisan serve
+=======
+- php artisan serve
+
