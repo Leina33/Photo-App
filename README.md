@@ -35,7 +35,7 @@ http://localhost/PhotoApp
 Run tests (manual or automated) using the test plans provided.
 =======
 Setting up environment
-----------------------------------------------------------------
+================================================
 1. Download and install Xampp or Wamp : local server environment
 2. Download and install IDE preferrably VS code
 3. Download and install Composer.exe
@@ -45,7 +45,7 @@ Creating a new project
 ==================================================
 1. navigate to C:\xampp\htdocs\ folder
 2. Open terminal and run this command
-   -"composer create-project laravel/laravel PhotoApp"
+   - "composer create-project laravel/laravel PhotoApp"
    - on .env file
        - uncomment db config 
        - rename from sqlite to mysql
@@ -58,19 +58,17 @@ Creating a new project
       - php artisan serve
 
 
+Clonning existing PhotoApp project from repo to local machine
+===============================================================
+- Rename .env.example into .env
 
-===================================================
-clonning existing PhotoApp project from repo to local machine
+- uncomment db config 
 
-Rename .env.example into .env
+- rename from sqlite to mysql
 
-uncomment db config 
+- Rename : Appname 
 
-rename from sqlite to mysql
-
-Rename : Appname 
-
-run this command 
+- run this command 
 
 1.composer install
 
