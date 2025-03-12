@@ -9,7 +9,7 @@
 
 ## Test Environment
 - **Browser:** Chrome, Firefox
-- **Operating System:** Windows 10
+- **Operating System:** Windows 10, 11 & Ubuntu
 - **Backend:** PHP (XAMPP)
 - **API Data Source:** [jsonplaceholder](https://jsonplaceholder.typicode.com/)
 
