@@ -22,7 +22,8 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/album', [AlbumController::class, 'index'])->name('album');
+    //Route::get('/album', [AlbumController::class, 'index'])->name('album');
+    Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
     Route::get('/photo', [PhotoController::class, 'index'])->name('photo');
     Route::get('/users', [UsersController::class, 'index'])->name('users');
     Route::get('/user/{id}', [UsersController::class, 'show'])->name('user');
