@@ -5,6 +5,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\UsersController;
 
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +24,7 @@ Route::middleware('auth')->group(function () {
 
 
     //Route::get('/album', [AlbumController::class, 'index'])->name('album');
+
     Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
     Route::get('/photo', [PhotoController::class, 'index'])->name('photo');
     Route::get('/users', [UsersController::class, 'index'])->name('users');
