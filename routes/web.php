@@ -24,12 +24,15 @@ Route::middleware('auth')->group(function () {
 
 
     //Route::get('/album', [AlbumController::class, 'index'])->name('album');
+    Route::get('/albums/{id}', [AlbumController::class, 'show'])->name('albums.show');
 
     Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
     Route::get('/photo', [PhotoController::class, 'index'])->name('photo');
     Route::get('/users', [UsersController::class, 'index'])->name('users');
     Route::get('/user/{id}', [UsersController::class, 'show'])->name('user');
     Route::get('/album-photo/{id}', [UsersController::class, 'showAlbumPhoto'])->name('album-photo');
+    Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');
+    Route::get('/photos/{id}', [PhotoController::class, 'show'])->name('photos.show');
 
 
 

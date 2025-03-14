@@ -2,71 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Photo;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\View\View;
 
 class PhotoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // List photos
+    public function index(): View
     {
-        //
-        $url = 'https://jsonplaceholder.typicode.com/photos';
-        $response = file_get_contents($url);
-       
-            // Decode the JSON response
-         $data = json_decode($response, true);
+        // Fetch photos
+        $response = Http::get('https://jsonplaceholder.typicode.com/photos');
+        $photos = $response->json();
 
-        return view('photo',compact('data'));
+        return view('photos.index', compact('photos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // Show photo details when clicked
+    public function show($photoId): View
     {
-        //
-    }
+        // Fetch the photo details
+        $photoResponse = Http::get("https://jsonplaceholder.typicode.com/photos/{$photoId}");
+        $photo = $photoResponse->json();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // Fetch the album details (since the photo is linked to an album)
+        $albumResponse = Http::get("https://jsonplaceholder.typicode.com/albums/{$photo['albumId']}");
+        $album = $albumResponse->json();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Photo $photo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Photo $photo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Photo $photo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Photo $photo)
-    {
-        //
+        return view('photos.show', compact('photo', 'album'));
     }
 }

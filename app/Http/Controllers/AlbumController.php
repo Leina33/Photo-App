@@ -9,16 +9,24 @@ class AlbumController extends Controller
 {
     public function index(): View
     {
-        // Make the API request to get albums
+        // Fetch albums
         $response = Http::get('https://jsonplaceholder.typicode.com/albums');
+        $albums = $response->json();
 
-        // Check if the response is successful
-        if ($response->successful()) {
-            $albums = $response->json();  // Get albums data as an array
-            return view('albums.index', compact('albums'));  // Pass albums to the view
-        } else {
-            // If there's an error with the API request, display an error message
-            return view('albums.index')->with('error', 'Failed to retrieve albums');
-        }
+        return view('albums.index', compact('albums'));
+    }
+
+    // Show user details when an album is clicked
+    public function show($albumId): View
+    {
+        // Fetch the album details
+        $albumResponse = Http::get("https://jsonplaceholder.typicode.com/albums/{$albumId}");
+        $album = $albumResponse->json();
+
+        // Fetch the user associated with the album
+        $userResponse = Http::get("https://jsonplaceholder.typicode.com/users/{$album['userId']}");
+        $user = $userResponse->json();
+
+        return view('albums.show', compact('album', 'user'));
     }
 }
